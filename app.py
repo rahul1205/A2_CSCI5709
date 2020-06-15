@@ -1,15 +1,7 @@
 import os, re
-import mysql.connector
 from flask import Flask, render_template, session, request, redirect
 from flask_material import Material
 
-# sql_db = mysql.connector.connect(
-#   host="localhost",
-#   user="root",
-#   passwd="root",
-#   database="real_align"
-# )
-# cursor = sql_db.cursor()
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)

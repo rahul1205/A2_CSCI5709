@@ -1,0 +1,132 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<script type="text/javascript">
+     $(document).ready(function(){
+      $('.carousel').carousel();
+
+    });
+
+     $(document).ready(function(){
+          $('.sidenav').sideNav();
+
+    });
+
+    // Auto initialize all the things!
+  </script>
+    
+  <title>Afford.ly</title>
+  </head>
+<body class="white lighten-5">
+<!-- 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" /> -->
+    
+
+    <nav class="black lighten-5">
+        
+
+      <div class="nav-extended">
+        <div class="nav-wrapper">
+        <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href='/'><img src="/static/logo.png" height="65"></a></li>
+<!--           <li><a href="/" class="brand-logo hoverable">Afford.ly</a></li>
+ -->        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/login" class="waves-effect hoverable">Login</a></li>
+          <li><a href="#" class="waves-effect hoverable">Signup</a></li>
+
+          <li><a href="#" class="waves-effect hoverable">Contact Us</a></li>
+          <li><a href="#" class="waves-effect hoverable">Discussion Forum</a></li>
+           
+
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+<!--     <ul id="slide-out" class="sidenav">
+
+    <li><a href="#" class="waves-effect hoverable">Login</a></li>
+          <li><a href="#" class="waves-effect hoverable">Signup</a></li>
+
+          <li><a href="#" class="waves-effect hoverable">Contact Us</a></li>
+          <li><a href="#" class="waves-effect hoverable">Discussion Forum</a></li>
+  </ul>
+ -->
+
+
+
+    <div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div>
+    <div class="row">
+      <div class="col s8 offset-s2">
+
+        <img src="static/logo.png" style=" display: block;margin-left: auto;margin-right: auto;width: 50%"/>
+        <p align="center" style="margin-left:300px">Reuse and save with afford.ly</p>
+        
+        <div class="carousel" style="margin-top: -50px">>
+              <a class="carousel-item" href="#"><img src="static/1.jpg" height=150px width=100%></a>
+              <a class="carousel-item" href="#"><img src="static/2.jpg" height=150px width=100%></a>
+              <a class="carousel-item" href="#"><img src="static/3.jpg" height=150px width=100%></a>
+           </div>
+        <div class="input-field" style="margin-top: -100px; margin-left: 375px; width:500px">
+          <input id="search" type="search" required>
+
+        </div>
+           <div class="center">
+           <a class="waves-effect waves-light btn">Search</a>
+          </div>
+
+    </div>
+
+  </div>
+
+
+
+<!-- CODE FOR FOOTER -->
+<footer class="page-footer black" >
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">This website a part of the final project submitted for the course Advance Topics in Web Development CSCI5709</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Meet the team behind Afford.ly</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#">Anish Tuli</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Piyush Aggarwal</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Sarabjeet Singh</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/rahul1205/">Rahul Anand</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tejasvi Vig</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/guneet-singh-dhillon/">Guneet Singh Dhillon</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            We have used Materialize CSS (https://materializecss.com/) for writing code of web pages.
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+</body>
+
+</html>
+{% endblock %}

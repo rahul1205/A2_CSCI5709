@@ -1,0 +1,146 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" />
+  
+
+  <title>Afford.ly</title>
+  </head>
+<body class="white lighten-5">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" />
+    <nav class="black lighten-5">
+      <div class="nav-extended">
+        <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href='/'><img src="/static/logo.png" height="65"></a></li>
+<!--           <li><a href="/" class="brand-logo hoverable">Afford.ly</a></li>
+ -->        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/login" class="waves-effect hoverable">Logout</a></li>
+          <li><a href="#" class="waves-effect hoverable">Signup</a></li>
+
+          <li><a href="#" class="waves-effect hoverable">Contact Us</a></li>
+          <li><a href="#" class="waves-effect hoverable">Discussion Forum</a></li>
+           
+
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div>
+    <div class="row">
+      <div class="col s8 offset-s2">
+
+      <h1> Checkout </h1>
+        {% if payment_success %}
+        <p class="center login-form-text" style="color:red">{{payment_success}}</p>
+        {% else %}
+
+        {% if invalid_expiry %}
+        <p class="center login-form-text" style="color:red">{{invalid_expiry}}</p>
+        {% endif %}
+
+        {% if invalid_card_number %}
+        <p class="center login-form-text" style="color:red">{{invalid_card_number}}</p>
+        {% endif %}
+
+        {% if missing_details %}
+        <p class="center login-form-text" style="color:red">{{missing_details}}</p>
+        {% endif %}
+
+        {% if invalid_cvv %}
+        <p class="center login-form-text" style="color:red">{{invalid_cvv}}</p>
+        {% endif %}
+        
+
+      <form action="/payment" method="POST">
+      <div class="row">
+            <div class="input-field col s6">
+              <input id="card_number" type="text" class="validate" name="card_number" maxlength="16">
+              <label class="active" for="card_number">Card Number</label>
+            </div>
+      </div>
+
+      <div class="row">
+            <div class="input-field col s3">
+              <input id="expiry" type="text" class="validate" name="expiry">
+              <label class="active" for="number">Expiry (MMYY)</label>
+            </div>
+
+      
+            <div class="input-field col s3">
+              <input id="cvv" type="number" class="validate" name="cvv" maxlength="3">
+              <label class="active" for="cvv">CVV</label>
+            </div>
+
+      </div>
+      
+
+      <div class="row">
+            <div class="input-field col s6">
+              <input id="full_name" type="text" class="validate" name="full_name">
+              <label class="active" for="full_name">Full Name (Optional)</label>
+            </div>
+
+      </div>
+            <img src="static/card.jpg" style=" display: block; margin-top:-275px;margin-left: auto;margin-right: auto;width: 30%; float:right;"/>
+
+      <div class="row">
+          <div class="input-field col s6 offset-s2">
+            <button class="btn waves-effect waves-dark hoverable">Pay</button>
+          </div>
+        </div>
+
+    </form>
+    {% endif %}
+
+
+    </div>
+
+  </div>
+    
+<!-- CODE FOR FOOTER -->
+<footer class="page-footer black" >
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">This website a part of the final project submitted for the course Advance Topics in Web Development CSCI5709</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Meet the team behind Afford.ly</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#">Anish Tuli</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Piyush Aggarwal</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Sarabjeet Singh</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/rahul1205/">Rahul Anand</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#">Tejasvi Vig</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/guneet-singh-dhillon/">Guneet Singh Dhillon</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            We have used Materialize CSS (https://materializecss.com/) for writing code of web pages.
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
+
+</body>
+</html>
+{% endblock %}

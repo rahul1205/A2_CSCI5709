@@ -1,5 +1,5 @@
 import os, re
-from flask import Flask, render_template, session, request, redirect
+from flask import Flask, render_template, request, redirect
 from flask_material import Material
 
 

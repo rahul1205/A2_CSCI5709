@@ -4,67 +4,79 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" />
-  
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <title>Afford.ly</title>
   </head>
-<body class="white lighten-5">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<body>
+    
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" />
-    <nav class="black lighten-5">
-      <div class="nav-extended">
-        <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href='/'><img src="/static/logo.jpg" height="65"></a></li>
-<!--           <li><a href="/" class="brand-logo hoverable">Afford.ly</a></li>
- -->        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+    
+  <!--navbar-->
+  <nav class="black lighten-5" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="/"><img id="logo-container" src="/static/images/logo.jpg" height=100%></a>
+      <ul class="right hide-on-med-and-down">
+        {% if logged_in %}
+        <li><a href="/login" class="white-text">Logout</a></li>
+        {% else %}
+        <li><a href="#" class="white-text">Signup</a></li>
+        {% endif %}
+
+        <li><a href="#" class="white-text">Contact Us</a></li>
+        <li><a href="#" class="white-text">Discussion Forum</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        {% if logged_in %}
+        <li><a href="/login" class="white-text">Logout</a></li>
+        {% else %}
+        <li><a href="#" class="black-text">Signup</a></li>
+        {% endif %}
+
+        <li><a href="#" class="black-text">Contact Us</a></li>
+        <li><a href="#" class="black-text">Discussion Forum</a></li>     
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+
+  <!--main heading-->
+   <div class="container">
+    <div class="section">
+        <img src="/static/images/logo.jpg" style=" display: block;margin-left: auto;margin-right: auto;width: 50%"/>
+        </div></div>
+
+
+
           {% if logged_in %}
-            <li><a href="/login" class="waves-effect hoverable">Logut</a></li>
-          {% else %}
-
-          <li><a href="#" class="waves-effect hoverable">Login</a></li>
-
-          {% endif %}
-          <li><a href="#" class="waves-effect hoverable">Signup</a></li>
-
-          <li><a href="#" class="waves-effect hoverable">Contact Us</a></li>
-          <li><a href="#" class="waves-effect hoverable">Discussion Forum</a></li>
-           
-
-        </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div>
-    <div class="row">
-      <div class="col s8 offset-s2">
-
-        <img src="static/logo.jpg" style=" display: block;margin-left: auto;margin-right: auto;width: 50%"/>
-        <p align="center" style="margin-left:300px">Reuse and save with afford.ly</p>
-          {% if logged_in %}
-          <p> You are succesfully logged in </p>
+          <p class="center login-form-text" style="color:red"> You are succesfully logged in </p>
+          <div class="row"></div><div class="row"></div>   <div class="row"></div><div class="row"></div>
+              <div class="row"></div><div class="row"></div>   <div class="row"></div><div class="row"></div>
+                 <div class="row"></div><div class="row"></div>   <div class="row"></div><div class="row"></div>
+                    
           {% else %}
         <div class="row">
+        {% if invalid_email %}
+        <p class="center login-form-text" style="color:red">{{invalid_email}}</p>
+        
+        {% endif %}
+
+         {% if invalid_password %}
+        <p class="center login-form-text" style="color:red">{{invalid_password}}</p>
+        {% endif %}
+
+        {% if logged_in %}
+        <p class="center login-form-text" style="color:red">{{logged_in}}</p>
+        {% endif %}
         <form class="col s12" action="/login" method="POST">
-              {% if invalid_email %}
-              <p class="center login-form-text" style="color:red">{{invalid_email}}</p>
-              {% endif %}
-
-               {% if invalid_password %}
-              <p class="center login-form-text" style="color:red">{{invalid_password}}</p>
-              {% endif %}
-
-              {% if logged_in %}
-              <p class="center login-form-text" style="color:red">{{logged_in}}</p>
-              {% endif %}
           <div class="row">
             <div class="input-field col s6 offset-s3">
               <input  id="email" type="text" class="validate" name="email">
@@ -82,8 +94,8 @@
           
 
           <div class="row">
-          <div class="input-field col s6 offset-s5">
-            <button class="btn waves-effect waves-dark hoverable">Login</button>
+          <div class="input-field col s6 offset-s6" style="left:-50px !important">
+            <button class="btn-large waves-effect waves-light teal lighten-1 hoverable">Login</button>
           </div>
         </div>
 
@@ -95,36 +107,45 @@
     </div>
 
   </div>
-    
-<!-- CODE FOR FOOTER -->
-<footer class="page-footer black" >
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">About Us</h5>
-                <p class="grey-text text-lighten-4">This website a part of the final project submitted for the course Advance Topics in Web Development CSCI5709</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Meet the team behind Afford.ly</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#">Anish Tuli</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Piyush Aggarwal</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Sarabjeet Singh</a></li>
-                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/rahul1205/">Rahul Anand</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Tejasvi Vig</a></li>
-                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/guneet-singh-dhillon/">Guneet Singh Dhillon</a></li>
+    <div class="row"></div><div class="row"></div>
 
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            We have used Materialize CSS (https://materializecss.com/) for writing code of web pages.
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
+    <!--Footer-->
+   <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Us</h5>
+          <p class="grey-text text-lighten-4">This website a part of the final project submitted for the course Advance Topics in Web Development CSCI5709</p>
+
+
+        </div>
+        
+        <div class="col l4 offset-12 s12">
+          <h5 class="white-text">Meet the team behind Afford.ly</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#">Anish Tuli</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Piyush Aggarwal</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Sarabjeet Singh</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/rahul1205/">Rahul Anand</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Tejasvi Vig</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/guneet-singh-dhillon/">Guneet Singh Dhillon</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      We have used Materialize CSS (https://materializecss.com/) for writing code of web pages.
+      </div>
+    </div>
+  </footer>
+
+
+  
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/static/js/materialize.js"></script>
+  <script src="/static/js/init.js"></script>
 
 </body>
 </html>
